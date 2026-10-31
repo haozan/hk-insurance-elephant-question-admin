@@ -13,6 +13,10 @@ RSpec.describe "Home", type: :request do
     it "returns http success and validates page quality" do
       get root_path
       expect(response).to be_success_with_view_check('index')
+      expect(response.body).to include("把 3,802 道題")
+      expect(response.body).to include("每卷前 50 題")
+      expect(response.body).to include("港險小象")
+      expect(response.body).not_to include("管理員登入")
 
       # Skip quality checks if redirected (no HTML content to validate)
       return if response.redirect?
@@ -73,6 +77,12 @@ RSpec.describe "Home", type: :request do
         "Found #{broken_images.size} image(s) returning 404:\n" +
         broken_images.map { |src| "  - #{src}" }.join("\n") +
         "\nUpdate image URLs to use accessible sources (e.g., images.unsplash.com) or local assets."
+    end
+
+    it "keeps the administration area separate from the public homepage" do
+      get admin_root_path
+
+      expect(response).to redirect_to(admin_login_path)
     end
 
     it "should not have demo.html.erb when home/index.html.erb exists" do

@@ -43,48 +43,44 @@
    * Use semantic variables only for maintainability and theme consistency.
    */
   :root {
-    /* Deep Blue - Legal Authority & Professionalism */
-    --color-primary: 220 60% 35%;
-    --color-primary-light: 220 60% 50%;
-    --color-primary-dark: 220 70% 25%;
+    /* 港險小象：沉穩墨綠搭配溫暖珊瑚色 */
+    --color-primary: 164 43% 25%;
+    --color-primary-light: 162 31% 40%;
+    --color-primary-dark: 167 52% 15%;
 
-    /* Gold - Premium & Hong Kong Culture */
-    --color-secondary: 43 74% 55%;
-    --color-secondary-light: 43 90% 70%;
-    --color-secondary-dark: 43 70% 45%;
+    --color-secondary: 12 92% 70%;
+    --color-secondary-light: 17 100% 90%;
+    --color-secondary-dark: 8 72% 54%;
 
-    /* Text colors - high contrast for readability */
-    --color-text-primary: 0 0% 15%;    /* Main headings, important text */
-    --color-text-secondary: 0 0% 35%;  /* Body text, descriptions */
-    --color-text-muted: 0 0% 64%;      /* Captions, helper text */
+    --color-text-primary: 167 38% 14%;
+    --color-text-secondary: 154 9% 43%;
+    --color-text-muted: 150 7% 56%;
 
-    /* Surface colors - for backgrounds and borders */
-    --color-surface: 0 0% 100%;        /* Main background (white) */
-    --color-surface-elevated: 0 0% 92%; /* Cards, elevated surfaces */
-    --color-border: 0 0% 90%;          /* Borders, dividers */
+    --color-surface: 48 24% 97%;
+    --color-surface-elevated: 0 0% 100%;
+    --color-border: 145 13% 89%;
 
-    /*  Neutral color - use only in special cases, avoid for text */
-    --color-neutral: 0 0% 64%;
+    --color-neutral: 150 7% 56%;
 
-    --color-success: 142 76% 36%;
-    --color-warning: 38 92% 50%;
-    --color-danger: 0 84% 60%;
-    --color-info: 188 94% 42%;
+    --color-success: 164 52% 30%;
+    --color-warning: 38 82% 42%;
+    --color-danger: 0 65% 55%;
+    --color-info: 188 62% 38%;
 
     --color-success-bg: 138 76% 97%;
     --color-warning-bg: 48 100% 96%;
     --color-danger-bg: 0 93% 97%;
     --color-info-bg: 204 100% 97%;
 
-    --font-family-sans: 'Atkinson Hyperlegible', 'Helvetica Neue', 'Arial', sans-serif;
-    --font-family-serif: 'Crimson Pro', 'Georgia', 'Times New Roman', serif;
+    --font-family-sans: -apple-system, BlinkMacSystemFont, 'PingFang TC', 'Noto Sans TC', 'Helvetica Neue', Arial, sans-serif;
+    --font-family-serif: 'Songti TC', 'Noto Serif TC', 'PMingLiU', Georgia, serif;
     --font-family-mono: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
 
-    --border-radius-sm: 0;
-    --border-radius: 0;
-    --border-radius-md: 0;
-    --border-radius-lg: 0;
-    --border-radius-xl: 0;
+    --border-radius-sm: 0.5rem;
+    --border-radius: 0.75rem;
+    --border-radius-md: 1rem;
+    --border-radius-lg: 1.5rem;
+    --border-radius-xl: 2rem;
 
     --shadow-xs: 0 1px 2px 0 rgb(0 0 0 / 0.05);
     --shadow-sm: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
@@ -143,6 +139,165 @@
   }
 
   /* Add your custom components here */
+
+  .landing-shell {
+    background:
+      radial-gradient(circle at 82% 5%, hsl(var(--color-secondary-light) / 0.7), transparent 27rem),
+      hsl(var(--color-surface));
+    color: hsl(var(--color-text-primary));
+  }
+
+  .landing-container {
+    width: min(100% - 2rem, 74rem);
+    margin-inline: auto;
+  }
+
+  .landing-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    border: 1px solid hsl(var(--color-primary) / 0.16);
+    border-radius: 9999px;
+    background: hsl(var(--color-surface-elevated) / 0.78);
+    padding: 0.5rem 0.85rem;
+    color: hsl(var(--color-primary));
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+  }
+
+  .landing-dot {
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 9999px;
+    background: hsl(var(--color-secondary));
+    box-shadow: 0 0 0 0.28rem hsl(var(--color-secondary) / 0.18);
+  }
+
+  .landing-display {
+    font-size: clamp(2.8rem, 7vw, 5.9rem);
+    line-height: 0.98;
+    letter-spacing: -0.055em;
+    text-wrap: balance;
+  }
+
+  .landing-section-title {
+    font-size: clamp(2rem, 4.8vw, 3.8rem);
+    line-height: 1.08;
+    letter-spacing: -0.045em;
+    text-wrap: balance;
+  }
+
+  .landing-highlight {
+    color: hsl(var(--color-primary));
+    background-image: linear-gradient(transparent 70%, hsl(var(--color-secondary) / 0.38) 70%);
+  }
+
+  .landing-phone {
+    position: relative;
+    overflow: hidden;
+    border: 0.55rem solid hsl(var(--color-primary-dark));
+    border-radius: 2.65rem;
+    background: hsl(var(--color-primary-dark));
+    box-shadow: 0 2.2rem 5rem hsl(var(--color-primary-dark) / 0.24);
+  }
+
+  .landing-phone::before {
+    content: '';
+    position: absolute;
+    z-index: 2;
+    top: 0.38rem;
+    left: 50%;
+    width: 32%;
+    height: 1rem;
+    transform: translateX(-50%);
+    border-radius: 9999px;
+    background: hsl(var(--color-primary-dark));
+  }
+
+  .landing-phone img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  .landing-glass-card {
+    border: 1px solid hsl(var(--color-surface-elevated) / 0.58);
+    border-radius: 1.35rem;
+    background: hsl(var(--color-surface-elevated) / 0.82);
+    box-shadow: 0 1rem 2.8rem hsl(var(--color-primary-dark) / 0.14);
+    backdrop-filter: blur(18px);
+  }
+
+  .landing-grid-pattern {
+    background-image:
+      linear-gradient(hsl(var(--color-primary) / 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(var(--color-primary) / 0.05) 1px, transparent 1px);
+    background-size: 2rem 2rem;
+  }
+
+  .landing-number {
+    color: hsl(var(--color-secondary-dark));
+    font-family: var(--font-family-serif);
+    font-size: clamp(3.8rem, 8vw, 7rem);
+    line-height: 0.8;
+  }
+
+  .landing-traffic-light {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.7rem;
+    border: 1px solid hsl(var(--color-border));
+    border-radius: 9999px;
+    background: hsl(var(--color-surface-elevated));
+    padding: 0.65rem 0.95rem;
+    font-weight: 700;
+  }
+
+  .landing-traffic-light::before {
+    content: '';
+    width: 0.7rem;
+    height: 0.7rem;
+    border-radius: 9999px;
+    background: var(--signal-color);
+    box-shadow: 0 0 0 0.28rem color-mix(in srgb, var(--signal-color) 16%, transparent);
+  }
+
+  .landing-traffic-light.is-red { --signal-color: hsl(var(--color-danger)); }
+  .landing-traffic-light.is-yellow { --signal-color: hsl(var(--color-warning)); }
+  .landing-traffic-light.is-green { --signal-color: hsl(var(--color-success)); }
+
+  .landing-pricing-featured {
+    border-color: hsl(var(--color-primary));
+    box-shadow: 0 1.8rem 4rem hsl(var(--color-primary-dark) / 0.13);
+  }
+
+  .landing-faq summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .landing-faq summary::after {
+    content: '+';
+    flex: none;
+    color: hsl(var(--color-primary));
+    font-size: 1.5rem;
+    font-weight: 400;
+  }
+
+  .landing-faq[open] summary::after {
+    content: '−';
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .landing-float {
+      animation: landing-float 5.5s ease-in-out infinite;
+    }
+  }
+
+  @keyframes landing-float {
+    0%, 100% { transform: translateY(0) rotate(-2deg); }
+    50% { transform: translateY(-0.75rem) rotate(-2deg); }
+  }
 
   /* Override badge border-radius for sharp corners */
   .badge,

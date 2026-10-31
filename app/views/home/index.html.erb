@@ -1,316 +1,308 @@
-<div class="min-h-screen">
-  <!-- Hero Section -->
-  <section class="relative bg-gradient-to-br from-primary to-primary-dark overflow-hidden">
-    <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0zNiAxOGMzLjMxNCAwIDYgMi42ODYgNiA2cy0yLjY4NiA2LTYgNi02LTIuNjg2LTYtNiAyLjY4Ni02IDYtNnoiIHN0cm9rZT0iI2ZmZiIgc3Ryb2tlLW9wYWNpdHk9Ii4wNSIvPjwvZz48L3N2Zz4=')] opacity-20"></div>
-    
-    <div class="container mx-auto px-4 py-20 lg:py-32 relative z-10">
-      <div class="grid lg:grid-cols-2 gap-12 items-center">
-        <!-- Hero Text -->
-        <div class="text-white">
-          <h1 class="font-serif text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-            香港法律文化之旅
+<% content_for :title, "五卷港險題庫與大綱" %>
+<% content_for :head do %>
+  <meta name="description" content="港險小象把五卷港險題庫放回大綱中學習，提供章節解析、試題預覽、紅黃綠掌握標記、進度記憶及學習記錄備份。每卷前 50 題免費。">
+  <meta name="theme-color" content="#16483d">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="zh_HK">
+  <meta property="og:title" content="港險小象｜五卷港險題庫與大綱">
+  <meta property="og:description" content="不只刷答案。沿着大綱理解、練習、標記，再把不熟的題目帶回來。">
+  <meta property="og:image" content="<%= asset_url('landing/app-icon.png') %>">
+  <link rel="canonical" href="https://lawseehk.com/">
+<% end %>
+
+<div class="landing-shell min-h-screen overflow-hidden font-sans">
+  <header class="sticky top-0 z-50 border-b border-border/70 bg-surface/90 backdrop-blur-xl">
+    <div class="landing-container flex h-20 items-center justify-between gap-6">
+      <a href="/" class="flex items-center gap-3" aria-label="港險小象首頁">
+        <%= image_tag "landing/app-icon.png", alt: "港險小象圖示", class: "h-11 w-11 rounded-xl shadow-sm" %>
+        <span class="text-lg font-bold tracking-tight text-primary">港險小象</span>
+      </a>
+
+      <nav class="hidden items-center gap-7 text-sm font-semibold text-secondary lg:flex" aria-label="主要導覽">
+        <a href="#experience" class="transition-colors hover:text-primary">學習方式</a>
+        <a href="#features" class="transition-colors hover:text-primary">核心功能</a>
+        <a href="#pricing" class="transition-colors hover:text-primary">免費與訂閱</a>
+        <a href="#faq" class="transition-colors hover:text-primary">常見問題</a>
+      </nav>
+
+      <a href="#pricing" class="btn-primary btn-sm rounded-full">每卷先試 50 題</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="relative pb-20 pt-16 sm:pt-24 lg:pb-28 lg:pt-28">
+      <div class="landing-container grid items-center gap-14 lg:grid-cols-[1.03fr_0.97fr] lg:gap-20">
+        <div class="relative z-10">
+          <div class="landing-eyebrow mb-7">
+            <span class="landing-dot" aria-hidden="true"></span>
+            五卷港險題庫 · 每卷前 50 題免費
+          </div>
+
+          <h1 class="landing-display font-bold text-primary-dark">
+            把 3,802 道題，<br class="hidden sm:block">
+            放回它該在的<span class="landing-highlight">大綱</span>裡。
           </h1>
-          <p class="text-xl lg:text-2xl mb-8 text-primary-light opacity-90">
-            深度体验香港法律文化，感受东西方法治精神的交融
+
+          <p class="mt-7 max-w-2xl text-lg leading-8 text-secondary sm:text-xl sm:leading-9">
+            港險小象不是把題目堆給你。它把五卷題庫、章節解析與試題互相連起來，讓你知道正在學甚麼、哪裡未熟，以及下一步該重溫哪一題。
           </p>
-          <p class="text-lg mb-8 leading-relaxed">
-            由熟悉香港制度的新港人发起，为内地法律专业人士提供法院旁听、监狱参观、文化打卡等深度体验服务。
-          </p>
-          <div class="flex flex-wrap gap-4 mb-12">
-            <%= link_to "探索打卡地", check_in_spots_path, class: "btn-primary inline-flex items-center gap-2" %>
-            <%= link_to "查看路线", routes_path, class: "btn-secondary inline-flex items-center gap-2" %>
+
+          <div class="mt-9 flex flex-col gap-3 sm:flex-row">
+            <a href="#experience" class="btn-primary btn-lg justify-center rounded-full">
+              看看如何學
+              <%= lucide_icon "arrow-down", class: "h-4 w-4" %>
+            </a>
+            <a href="#pricing" class="btn-outline-primary btn-lg justify-center rounded-full">查看免費方案</a>
           </div>
-          
-          <!-- Stats -->
-          <div class="grid grid-cols-3 gap-6 pt-8 border-t border-white/20">
-            <div>
-              <div class="text-3xl font-bold mb-1"><%= CheckInSpot.count %>+</div>
-              <div class="text-sm text-primary-light">精选打卡地</div>
+
+          <div class="mt-9 flex flex-wrap gap-x-6 gap-y-3 text-sm font-medium text-secondary">
+            <span class="inline-flex items-center gap-2"><%= lucide_icon "user-round-x", class: "h-4 w-4 text-primary" %>無須建立帳戶</span>
+            <span class="inline-flex items-center gap-2"><%= lucide_icon "shield-check", class: "h-4 w-4 text-primary" %>學習記錄留在本機</span>
+            <span class="inline-flex items-center gap-2"><%= lucide_icon "cloud-download", class: "h-4 w-4 text-primary" %>題庫可在線更新</span>
+          </div>
+        </div>
+
+        <div class="relative mx-auto w-full max-w-[35rem] lg:mx-0">
+          <div class="absolute -inset-8 -z-10 rounded-[4rem] bg-secondary-light/70 blur-3xl"></div>
+          <div class="landing-phone mx-auto w-[68%] rotate-[2deg] sm:w-[62%] lg:w-[66%]">
+            <%= image_tag "landing/04-outline.png", alt: "港險小象大綱模式，顯示章節、題數與考試佔比", fetchpriority: "high" %>
+          </div>
+
+          <div class="landing-glass-card landing-float absolute -left-1 top-[17%] hidden w-52 p-4 sm:block">
+            <p class="text-xs font-bold uppercase tracking-[0.14em] text-muted">學習路徑</p>
+            <p class="mt-2 font-bold text-primary">大綱 → 解析 → 試題</p>
+          </div>
+
+          <div class="landing-glass-card absolute -right-1 bottom-[14%] w-48 p-4 sm:w-56">
+            <div class="flex items-center justify-between">
+              <span class="text-sm font-bold text-primary">掌握程度</span>
+              <span class="text-xs text-muted">隨手標記</span>
             </div>
-            <div>
-              <div class="text-3xl font-bold mb-1"><%= Route.count %>+</div>
-              <div class="text-sm text-primary-light">主题路线</div>
-            </div>
-            <div>
-              <div class="text-3xl font-bold mb-1">100%</div>
-              <div class="text-sm text-primary-light">本地专家</div>
+            <div class="mt-3 flex items-center gap-3" aria-label="生疏、一般、熟練三種掌握程度">
+              <span class="h-4 w-4 rounded-full bg-danger shadow-sm"></span>
+              <span class="h-4 w-4 rounded-full bg-warning shadow-sm"></span>
+              <span class="h-4 w-4 rounded-full bg-success shadow-sm"></span>
             </div>
           </div>
         </div>
-        
-        <!-- Hero Image -->
-        <div class="relative">
-          <div class="aspect-[4/3] overflow-hidden shadow-2xl">
-            <img src="https://images.unsplash.com/photo-1532274402911-5a369e4c4bb5?w=800&h=600&fit=crop" 
-                 alt="Hong Kong Legal Culture" 
-                 class="w-full h-full object-cover">
-          </div>
-          <div class="absolute -bottom-6 -left-6 bg-secondary text-white p-6 shadow-xl">
-            <div class="text-sm font-medium mb-1">专业法律向导</div>
-            <div class="text-2xl font-bold">镐赞 & 杨佩枝</div>
-          </div>
+      </div>
+    </section>
+
+    <section class="border-y border-border bg-surface-elevated/80 py-7" aria-label="產品重點">
+      <div class="landing-container grid grid-cols-2 gap-x-6 gap-y-7 text-center md:grid-cols-4">
+        <div><p class="text-2xl font-bold text-primary">5 卷</p><p class="mt-1 text-sm text-muted">核心考試範圍</p></div>
+        <div><p class="text-2xl font-bold text-primary">3,802 題</p><p class="mt-1 text-sm text-muted">題目與解析</p></div>
+        <div><p class="text-2xl font-bold text-primary">50 題／卷</p><p class="mt-1 text-sm text-muted">免費開始</p></div>
+        <div><p class="text-2xl font-bold text-primary">1 份備份</p><p class="mt-1 text-sm text-muted">帶走所有學習記錄</p></div>
+      </div>
+    </section>
+
+    <section id="experience" class="py-24 lg:py-32">
+      <div class="landing-container">
+        <div class="mx-auto max-w-3xl text-center">
+          <p class="text-sm font-bold tracking-[0.18em] text-secondary-dark">不是刷得多，是每題都有位置</p>
+          <h2 class="landing-section-title mt-4 font-bold text-primary-dark">題庫應該是一張地圖，<br>而不是一疊卡片。</h2>
+          <p class="mt-6 text-lg leading-8 text-secondary">同一道題，只有放回知識節點，才知道它在考甚麼、前後還缺甚麼。</p>
+        </div>
+
+        <div class="mt-14 grid gap-5 lg:grid-cols-2">
+          <article class="rounded-3xl border border-border bg-surface-elevated p-7 sm:p-10">
+            <div class="flex items-center justify-between gap-4">
+              <span class="text-sm font-bold text-muted">一般刷題流程</span>
+              <%= lucide_icon "shuffle", class: "h-6 w-6 text-muted" %>
+            </div>
+            <h3 class="mt-8 text-2xl font-bold text-primary-dark">做題 → 看答案 → 忘記</h3>
+            <p class="mt-4 leading-7 text-secondary">題目彼此孤立，錯題只剩一個紅點，很難看見自己真正欠缺的章節。</p>
+            <div class="mt-8 space-y-3 opacity-70" aria-hidden="true">
+              <div class="h-3 w-full rounded-full bg-border"></div>
+              <div class="h-3 w-4/5 rounded-full bg-border"></div>
+              <div class="h-3 w-2/3 rounded-full bg-border"></div>
+            </div>
+          </article>
+
+          <article class="rounded-3xl bg-primary p-7 text-surface shadow-xl sm:p-10">
+            <div class="flex items-center justify-between gap-4">
+              <span class="text-sm font-bold text-surface/70">港險小象流程</span>
+              <%= lucide_icon "route", class: "h-6 w-6 text-secondary" %>
+            </div>
+            <h3 class="mt-8 text-2xl font-bold">大綱 → 解析 → 練習 → 重溫</h3>
+            <p class="mt-4 leading-7 text-surface/80">每道題都有章節位置；每次標記都能留下線索，下一輪複習不再從零開始。</p>
+            <div class="mt-8 flex flex-wrap gap-2 text-xs font-bold">
+              <span class="rounded-full bg-surface/10 px-3 py-2">章節佔比</span>
+              <span class="rounded-full bg-surface/10 px-3 py-2">關聯試題</span>
+              <span class="rounded-full bg-surface/10 px-3 py-2">掌握狀態</span>
+            </div>
+          </article>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Featured Check-in Spots -->
-  <section class="py-20 bg-surface">
-    <div class="container mx-auto px-4">
-      <div class="text-center mb-12">
-        <h2 class="font-serif text-4xl font-bold text-text mb-4">热门打卡地</h2>
-        <p class="text-xl text-text-muted max-w-2xl mx-auto">
-          探索香港法律与文化的地标性场所，深入了解香港独特的法律体系
-        </p>
-      </div>
-
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-        <% CheckInSpot.published.includes(:tags).limit(6).each do |spot| %>
-          <%= link_to check_in_spot_path(spot), class: "card-base group hover:shadow-xl transition-all duration-300" do %>
-            <div class="aspect-[16/10] bg-surface-dark overflow-hidden">
-              <% if spot.cover_image.present? %>
-                <img src="<%= spot.cover_image %>" alt="<%= spot.title %>" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
-              <% end %>
+    <section id="features" class="landing-grid-pattern border-y border-border bg-surface-elevated py-24 lg:py-32">
+      <div class="landing-container space-y-28 lg:space-y-36">
+        <article class="grid items-center gap-12 lg:grid-cols-2 lg:gap-24">
+          <div class="relative mx-auto w-full max-w-md">
+            <div class="landing-phone mx-auto w-[72%] -rotate-[2deg]">
+              <%= image_tag "landing/04-outline.png", alt: "大綱模式按章節展示解析條數、題目數量及考試佔比", loading: "lazy", decoding: "async" %>
             </div>
-            <div class="p-6">
-              <div class="flex flex-wrap gap-2 mb-3">
-                <% spot.tags.limit(2).each do |tag| %>
-                  <span class="badge-primary text-xs"><%= tag.name %></span>
-                <% end %>
-              </div>
-              <h3 class="font-serif text-xl font-semibold text-text mb-2 group-hover:text-primary transition-colors">
-                <%= spot.title %>
-              </h3>
-              <p class="text-text-muted text-sm line-clamp-2">
-                <%= spot.subtitle %>
-              </p>
+            <div class="landing-glass-card absolute -right-2 top-[28%] max-w-48 p-4 sm:-right-10">
+              <p class="text-sm font-bold text-primary">第 1 章 · 12%</p>
+              <p class="mt-1 text-xs leading-5 text-muted">先看佔比，再安排複習時間。</p>
             </div>
-          <% end %>
-        <% end %>
-      </div>
+          </div>
+          <div>
+            <p class="landing-number">01</p>
+            <h2 class="landing-section-title mt-7 font-bold text-primary-dark">先看全貌，<br>再攻薄弱章節。</h2>
+            <p class="mt-6 text-lg leading-8 text-secondary">五卷題庫以多層大綱整理。章節、節點、解析條數、關聯題目與考試佔比放在同一畫面，重點不再靠猜。</p>
+            <ul class="mt-8 space-y-4 text-secondary">
+              <li class="flex gap-3"><%= lucide_icon "check", class: "mt-1 h-5 w-5 flex-none text-primary" %><span>章節可逐層展開與收合</span></li>
+              <li class="flex gap-3"><%= lucide_icon "check", class: "mt-1 h-5 w-5 flex-none text-primary" %><span>解析內容直接歸入對應知識節點</span></li>
+              <li class="flex gap-3"><%= lucide_icon "check", class: "mt-1 h-5 w-5 flex-none text-primary" %><span>題目、解析與大綱雙向關聯</span></li>
+            </ul>
+          </div>
+        </article>
 
-      <div class="text-center">
-        <%= link_to "查看所有打卡地 #{lucide_icon 'arrow-right', class: 'w-4 h-4 inline'}".html_safe, 
-                    check_in_spots_path, 
-                    class: "btn-outline inline-flex items-center gap-2" %>
-      </div>
-    </div>
-  </section>
+        <article class="grid items-center gap-12 lg:grid-cols-2 lg:gap-24">
+          <div class="order-2 lg:order-1">
+            <p class="landing-number">02</p>
+            <h2 class="landing-section-title mt-7 font-bold text-primary-dark">不用離開大綱，<br>就能看懂這道題。</h2>
+            <p class="mt-6 text-lg leading-8 text-secondary">點選關聯題目後，以簡潔的試題預覽在原位置打開。題號、參考章節、選項與掌握程度都保留上下文，不會突然跳走。</p>
+            <div class="mt-8 rounded-2xl border border-border bg-surface p-5">
+              <p class="text-sm font-bold text-primary">少一次頁面切換，多一條理解線索。</p>
+              <p class="mt-2 text-sm leading-6 text-muted">適合在讀解析時快速抽查，也適合從題目反查大綱位置。</p>
+            </div>
+          </div>
+          <div class="order-1 relative mx-auto w-full max-w-md lg:order-2">
+            <div class="landing-phone mx-auto w-[72%] rotate-[2deg]">
+              <%= image_tag "landing/05-outline-preview.png", alt: "在大綱中開啟試題預覽並設定掌握程度", loading: "lazy", decoding: "async" %>
+            </div>
+          </div>
+        </article>
 
-  <!-- Service Models - Z Pattern -->
-  <section class="py-20">
-    <div class="container mx-auto px-4">
-      <div class="text-center mb-16">
-        <h2 class="font-serif text-4xl font-bold text-text mb-4">三大服务模式</h2>
-        <p class="text-xl text-text-muted max-w-2xl mx-auto">
-          根据您的需求选择最适合的服务方案
-        </p>
-      </div>
+        <article class="grid items-center gap-12 lg:grid-cols-2 lg:gap-24">
+          <div class="relative mx-auto w-full max-w-md">
+            <div class="landing-phone mx-auto w-[72%] -rotate-[2deg]">
+              <%= image_tag "landing/03-answer-explanation.png", alt: "作答後查看正確答案、詳細解析及參考章節", loading: "lazy", decoding: "async" %>
+            </div>
+          </div>
+          <div>
+            <p class="landing-number">03</p>
+            <h2 class="landing-section-title mt-7 font-bold text-primary-dark">一眼標記，<br>下次只看真正要看的。</h2>
+            <p class="mt-6 text-lg leading-8 text-secondary">每道題可標成生疏、一般或熟練。這不是改動官方題庫，而是你的私人複習層，讓每次練習都留下價值。</p>
+            <div class="mt-8 flex flex-wrap gap-3">
+              <span class="landing-traffic-light is-red">生疏</span>
+              <span class="landing-traffic-light is-yellow">一般</span>
+              <span class="landing-traffic-light is-green">熟練</span>
+            </div>
+          </div>
+        </article>
 
-      <!-- Guide Subscription -->
-      <div class="grid lg:grid-cols-2 gap-12 items-center mb-20">
+        <article id="records" class="grid items-center gap-12 lg:grid-cols-2 lg:gap-24">
+          <div class="order-2 lg:order-1">
+            <p class="landing-number">04</p>
+            <h2 class="landing-section-title mt-7 font-bold text-primary-dark">題庫會更新，<br>你的進度不會被洗掉。</h2>
+            <p class="mt-6 text-lg leading-8 text-secondary">刷題位置與紅黃綠狀態預設只存在你的裝置。換手機或重新安裝前，匯出一份學習記錄；在新裝置匯入，即可繼續。</p>
+            <div class="mt-8 grid gap-4 sm:grid-cols-2">
+              <div class="rounded-2xl border border-border bg-surface p-5"><%= lucide_icon "database", class: "h-6 w-6 text-primary" %><p class="mt-4 font-bold text-primary-dark">題庫資料</p><p class="mt-2 text-sm leading-6 text-muted">由官方後台維護及同步</p></div>
+              <div class="rounded-2xl border border-border bg-surface p-5"><%= lucide_icon "bookmark-check", class: "h-6 w-6 text-primary" %><p class="mt-4 font-bold text-primary-dark">學習記錄</p><p class="mt-2 text-sm leading-6 text-muted">本機保存，可匯出及恢復</p></div>
+            </div>
+          </div>
+          <div class="order-1 relative mx-auto w-full max-w-md lg:order-2">
+            <div class="landing-phone mx-auto w-[72%] rotate-[2deg]">
+              <%= image_tag "landing/06-my-records.png", alt: "我的頁面顯示學習統計及記錄匯出匯入功能", loading: "lazy", decoding: "async" %>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="py-24 lg:py-32">
+      <div class="landing-container">
+        <div class="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-24">
+          <div>
+            <p class="text-sm font-bold tracking-[0.18em] text-secondary-dark">三步形成自己的複習循環</p>
+            <h2 class="landing-section-title mt-4 font-bold text-primary-dark">從第一次打開，<br>就知道下一步。</h2>
+          </div>
+          <ol class="divide-y divide-border border-y border-border">
+            <li class="grid gap-4 py-8 sm:grid-cols-[5rem_1fr]"><span class="font-serif text-4xl text-secondary-dark">01</span><div><h3 class="text-xl font-bold text-primary-dark">選一卷，從大綱定位</h3><p class="mt-2 leading-7 text-secondary">先看章節與考試佔比，把時間放在真正重要的位置。</p></div></li>
+            <li class="grid gap-4 py-8 sm:grid-cols-[5rem_1fr]"><span class="font-serif text-4xl text-secondary-dark">02</span><div><h3 class="text-xl font-bold text-primary-dark">讀解析，再做關聯題</h3><p class="mt-2 leading-7 text-secondary">在知識節點內完成理解與驗證，不讓題目脫離脈絡。</p></div></li>
+            <li class="grid gap-4 py-8 sm:grid-cols-[5rem_1fr]"><span class="font-serif text-4xl text-secondary-dark">03</span><div><h3 class="text-xl font-bold text-primary-dark">用紅黃綠安排下一輪</h3><p class="mt-2 leading-7 text-secondary">熟練的放下，生疏的留下；下一次打開就接着複習。</p></div></li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <section id="pricing" class="border-y border-border bg-primary py-24 text-surface lg:py-32">
+      <div class="landing-container">
+        <div class="mx-auto max-w-3xl text-center">
+          <p class="text-sm font-bold tracking-[0.18em] text-secondary">先免費試清楚，再決定是否解鎖</p>
+          <h2 class="landing-section-title mt-4 font-bold">每卷前 50 題，免費。</h2>
+          <p class="mt-6 text-lg leading-8 text-surface/75">無須先付費，也無須建立帳戶。覺得這套學習方式適合你，再選半年或年度訂閱。</p>
+        </div>
+
+        <div class="mt-14 grid gap-5 lg:grid-cols-3">
+          <article class="rounded-3xl border border-surface/15 bg-surface/5 p-7 sm:p-8">
+            <p class="text-sm font-bold text-surface/65">免費使用</p><p class="mt-5 text-4xl font-bold">HK$0</p><p class="mt-2 text-sm text-surface/60">不用訂閱</p>
+            <ul class="mt-8 space-y-4 text-sm text-surface/80"><li class="flex gap-3"><%= lucide_icon "check", class: "h-5 w-5 flex-none text-secondary" %><span>每卷前 50 道題目</span></li><li class="flex gap-3"><%= lucide_icon "check", class: "h-5 w-5 flex-none text-secondary" %><span>先體驗刷題與學習流程</span></li><li class="flex gap-3"><%= lucide_icon "check", class: "h-5 w-5 flex-none text-secondary" %><span>本機保留學習進度</span></li></ul>
+          </article>
+
+          <article class="rounded-3xl border border-surface/15 bg-surface/5 p-7 sm:p-8">
+            <p class="text-sm font-bold text-surface/65">半年訂閱</p><p class="mt-5 text-4xl font-bold">HK$199</p><p class="mt-2 text-sm text-surface/60">每 6 個月自動續訂</p>
+            <ul class="mt-8 space-y-4 text-sm text-surface/80"><li class="flex gap-3"><%= lucide_icon "check", class: "h-5 w-5 flex-none text-secondary" %><span>解鎖五卷完整題庫與解析</span></li><li class="flex gap-3"><%= lucide_icon "check", class: "h-5 w-5 flex-none text-secondary" %><span>大綱、試題預覽與掌握標記</span></li><li class="flex gap-3"><%= lucide_icon "check", class: "h-5 w-5 flex-none text-secondary" %><span>學習記錄匯出、匯入與恢復</span></li></ul>
+          </article>
+
+          <article class="landing-pricing-featured relative rounded-3xl border-2 bg-surface p-7 text-primary-dark sm:p-8">
+            <span class="absolute -top-4 left-7 rounded-full bg-secondary px-4 py-2 text-xs font-bold text-primary-dark">一年更划算 · 省 HK$99</span>
+            <p class="text-sm font-bold text-secondary">年度訂閱</p><p class="mt-5 text-4xl font-bold">HK$299</p><p class="mt-2 text-sm text-muted">每年自動續訂</p>
+            <ul class="mt-8 space-y-4 text-sm text-secondary"><li class="flex gap-3"><%= lucide_icon "check", class: "h-5 w-5 flex-none text-primary" %><span>包含半年方案的全部功能</span></li><li class="flex gap-3"><%= lucide_icon "check", class: "h-5 w-5 flex-none text-primary" %><span>相較連續兩期半年方案節省 HK$99</span></li><li class="flex gap-3"><%= lucide_icon "check", class: "h-5 w-5 flex-none text-primary" %><span>適合完整備考與持續重溫</span></li></ul>
+          </article>
+        </div>
+
+        <p class="mx-auto mt-8 max-w-3xl text-center text-xs leading-6 text-surface/55">訂閱透過 Apple App Store 完成並由 Apple 管理。實際價格以購買確認頁面顯示為準，可在 App Store 帳戶設定中管理或取消自動續訂。</p>
+      </div>
+    </section>
+
+    <section id="faq" class="py-24 lg:py-32">
+      <div class="landing-container grid gap-12 lg:grid-cols-[0.75fr_1.25fr] lg:gap-24">
         <div>
-          <div class="inline-block px-4 py-1 bg-secondary/10 text-secondary text-sm font-medium mb-4">
-            自助深度游
-          </div>
-          <h3 class="font-serif text-3xl font-bold text-text mb-4">导览订阅服务</h3>
-          <p class="text-lg text-text-muted mb-6 leading-relaxed">
-            一次性付费，解锁全部打卡地的详细导览内容。90天内无限次查看景点介绍、参观攻略、拍照指南等专业内容。适合自由行和深度探索的法律人。
-          </p>
-          <ul class="space-y-3 mb-8">
-            <li class="flex items-start gap-3">
-              <%= lucide_icon 'check-circle', class: 'w-5 h-5 text-secondary flex-shrink-0 mt-1' %>
-              <span class="text-text">90天无限访问所有导览内容</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <%= lucide_icon 'check-circle', class: 'w-5 h-5 text-secondary flex-shrink-0 mt-1' %>
-              <span class="text-text">详细的参观攻略和注意事项</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <%= lucide_icon 'check-circle', class: 'w-5 h-5 text-secondary flex-shrink-0 mt-1' %>
-              <span class="text-text">专业拍照建议和文化背景介绍</span>
-            </li>
-          </ul>
-          <%= link_to "立即订阅", new_subscription_path, class: "btn-primary inline-flex items-center gap-2" %>
+          <p class="text-sm font-bold tracking-[0.18em] text-secondary-dark">開始前，你可能想知道</p>
+          <h2 class="landing-section-title mt-4 font-bold text-primary-dark">常見問題</h2>
+          <p class="mt-6 leading-7 text-secondary">還有使用或同步問題，可前往 <a href="/support" class="font-bold text-primary underline decoration-secondary decoration-2 underline-offset-4">支援頁面</a>。</p>
         </div>
-        <div class="aspect-[4/3] overflow-hidden shadow-xl">
-          <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=800&h=600&fit=crop" 
-               alt="Guide Subscription" 
-               class="w-full h-full object-cover">
+
+        <div class="divide-y divide-border border-y border-border">
+          <details class="landing-faq group py-6"><summary class="flex cursor-pointer list-none items-center justify-between gap-6 text-lg font-bold text-primary-dark">免費可以使用多少題？</summary><p class="mt-4 max-w-2xl leading-7 text-secondary">五卷題庫每卷前 50 道題目都可免費練習。超出免費額度後，可選擇半年或年度訂閱解鎖完整題庫及解析。</p></details>
+          <details class="landing-faq group py-6"><summary class="flex cursor-pointer list-none items-center justify-between gap-6 text-lg font-bold text-primary-dark">題庫更新會覆蓋我的刷題記錄嗎？</summary><p class="mt-4 max-w-2xl leading-7 text-secondary">不會。官方題庫資料與你的學習記錄分開保存；同步題庫不會清除紅黃綠狀態或目前刷題位置。</p></details>
+          <details class="landing-faq group py-6"><summary class="flex cursor-pointer list-none items-center justify-between gap-6 text-lg font-bold text-primary-dark">換手機後如何恢復進度？</summary><p class="mt-4 max-w-2xl leading-7 text-secondary">在舊裝置的「我的」頁面匯出學習記錄，把檔案保存到安全位置；在新裝置安裝 App 後匯入，即可恢復掌握狀態與刷題進度。</p></details>
+          <details class="landing-faq group py-6"><summary class="flex cursor-pointer list-none items-center justify-between gap-6 text-lg font-bold text-primary-dark">需要註冊或登入嗎？</summary><p class="mt-4 max-w-2xl leading-7 text-secondary">不需要。App 不要求建立帳戶；學習記錄預設留在你的裝置，也不會隨題庫同步上傳到伺服器。</p></details>
+          <details class="landing-faq group py-6"><summary class="flex cursor-pointer list-none items-center justify-between gap-6 text-lg font-bold text-primary-dark">這個 App 代替正式教材或專業意見嗎？</summary><p class="mt-4 max-w-2xl leading-7 text-secondary">不代替。港險小象是考試學習與複習工具，應配合官方考試資料、課程及最新規則使用。</p></details>
         </div>
       </div>
+    </section>
 
-      <!-- Standard Tours -->
-      <div class="grid lg:grid-cols-2 gap-12 items-center mb-20">
-        <div class="order-2 lg:order-1 aspect-[4/3] overflow-hidden shadow-xl">
-          <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=800&h=600&fit=crop" 
-               alt="Standard Tours" 
-               class="w-full h-full object-cover">
-        </div>
-        <div class="order-1 lg:order-2">
-          <div class="inline-block px-4 py-1 bg-primary/10 text-primary text-sm font-medium mb-4">
-            精品小团
-          </div>
-          <h3 class="font-serif text-3xl font-bold text-text mb-4">标准路线服务</h3>
-          <p class="text-lg text-text-muted mb-6 leading-relaxed">
-            由镐赞和杨佩枝亲自带队，最多7人的精品小团。提供预设的主题路线，涵盖法律专业参访、文化体验和香港生活方式探索。
-          </p>
-          <ul class="space-y-3 mb-8">
-            <li class="flex items-start gap-3">
-              <%= lucide_icon 'users', class: 'w-5 h-5 text-primary flex-shrink-0 mt-1' %>
-              <span class="text-text">7人精品小团，深度互动交流</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <%= lucide_icon 'map', class: 'w-5 h-5 text-primary flex-shrink-0 mt-1' %>
-              <span class="text-text">精心设计的主题路线</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <%= lucide_icon 'star', class: 'w-5 h-5 text-primary flex-shrink-0 mt-1' %>
-              <span class="text-text">创始人亲自讲解和陪同</span>
-            </li>
-          </ul>
-          <%= link_to "查看路线", routes_path, class: "btn-primary inline-flex items-center gap-2" %>
-        </div>
+    <section class="px-4 pb-24 lg:pb-32">
+      <div class="landing-container relative overflow-hidden rounded-[2.5rem] bg-secondary-light px-6 py-16 text-center sm:px-12 lg:py-24">
+        <div class="absolute -left-16 -top-20 h-52 w-52 rounded-full bg-secondary/30 blur-3xl"></div>
+        <div class="absolute -bottom-24 -right-12 h-64 w-64 rounded-full bg-primary/15 blur-3xl"></div>
+        <%= image_tag "landing/app-icon.png", alt: "", class: "relative mx-auto h-20 w-20 rounded-2xl shadow-lg", loading: "lazy" %>
+        <h2 class="landing-section-title relative mx-auto mt-7 max-w-3xl font-bold text-primary-dark">下一輪複習，不必再從第一題開始。</h2>
+        <p class="relative mx-auto mt-5 max-w-2xl text-lg leading-8 text-secondary">港險小象正在準備登陸 App Store。上架後，可從每卷前 50 題免費開始。</p>
+        <div class="relative mt-8 inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 font-bold text-surface shadow-lg"><span class="h-2 w-2 animate-pulse rounded-full bg-secondary"></span>App Store 上架準備中</div>
       </div>
+    </section>
+  </main>
 
-      <!-- Custom Tours -->
-      <div class="grid lg:grid-cols-2 gap-12 items-center">
-        <div>
-          <div class="badge-primary text-sm font-medium mb-4">
-            定制专属
-          </div>
-          <h3 class="font-serif text-3xl font-bold text-text mb-4">定制路线服务</h3>
-          <p class="text-lg text-text-muted mb-6 leading-relaxed">
-            根据您的兴趣和需求，量身定制专属行程。无论是专注法律专业考察，还是结合文化娱乐体验，我们都能为您打造独一无二的香港之旅。
-          </p>
-          <ul class="space-y-3 mb-8">
-            <li class="flex items-start gap-3">
-              <%= lucide_icon 'sparkles', class: 'w-5 h-5 text-accent flex-shrink-0 mt-1' %>
-              <span class="text-text">完全个性化的行程设计</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <%= lucide_icon 'calendar', class: 'w-5 h-5 text-accent flex-shrink-0 mt-1' %>
-              <span class="text-text">灵活的时间和地点安排</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <%= lucide_icon 'message-circle', class: 'w-5 h-5 text-accent flex-shrink-0 mt-1' %>
-              <span class="text-text">一对一咨询和方案沟通</span>
-            </li>
-          </ul>
-          <%= link_to "联系定制", contacts_path, class: "btn-primary inline-flex items-center gap-2" %>
-        </div>
-        <div class="aspect-[4/3] overflow-hidden shadow-xl">
-          <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=800&h=600&fit=crop" 
-               alt="Custom Tours" 
-               class="w-full h-full object-cover">
-        </div>
+  <footer class="border-t border-border bg-surface-elevated py-10">
+    <div class="landing-container flex flex-col gap-7 sm:flex-row sm:items-end sm:justify-between">
+      <div>
+        <div class="flex items-center gap-3"><%= image_tag "landing/app-icon.png", alt: "", class: "h-10 w-10 rounded-xl" %><span class="font-bold text-primary">港險小象</span></div>
+        <p class="mt-3 text-sm text-muted">每一張卡片，都是一點積累。</p>
+      </div>
+      <div class="flex flex-wrap gap-x-6 gap-y-3 text-sm font-medium text-secondary">
+        <a href="/privacy" class="hover:text-primary">私隱政策</a>
+        <a href="/support" class="hover:text-primary">支援</a>
+        <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/" rel="noopener" class="hover:text-primary">使用條款</a>
+        <a href="/admin" class="hover:text-primary">內容管理</a>
       </div>
     </div>
-  </section>
-
-  <!-- Featured Routes -->
-  <section class="py-20 bg-surface">
-    <div class="container mx-auto px-4">
-      <div class="text-center mb-12">
-        <h2 class="font-serif text-4xl font-bold text-text mb-4">精选主题路线</h2>
-        <p class="text-xl text-text-muted max-w-2xl mx-auto">
-          专业设计的法律文化探索路线，让您的香港之旅更有深度
-        </p>
-      </div>
-
-      <div class="grid md:grid-cols-2 gap-8 mb-12">
-        <% Route.published.includes(:tags).limit(4).each do |route| %>
-          <%= link_to route_path(route), class: "card-base group hover:shadow-xl transition-all duration-300" do %>
-            <div class="p-8">
-              <div class="flex flex-wrap gap-2 mb-4">
-                <% route.tags.limit(3).each do |tag| %>
-                  <span class="badge-outline text-xs"><%= tag.name %></span>
-                <% end %>
-              </div>
-              <h3 class="font-serif text-2xl font-semibold text-text mb-3 group-hover:text-primary transition-colors">
-                <%= route.title %>
-              </h3>
-              <p class="text-text-muted mb-6 line-clamp-2">
-                <%= route.description %>
-              </p>
-              <div class="flex items-center justify-between pt-4 border-t border-border">
-                <div class="flex items-center gap-2 text-sm text-text-muted">
-                  <%= lucide_icon 'map-pin', class: 'w-4 h-4' %>
-                  <span><%= route.check_in_spots.count %> 个打卡地</span>
-                </div>
-                <div class="text-primary font-medium flex items-center gap-1">
-                  查看详情
-                  <%= lucide_icon 'arrow-right', class: 'w-4 h-4 group-hover:translate-x-1 transition-transform' %>
-                </div>
-              </div>
-            </div>
-          <% end %>
-        <% end %>
-      </div>
-
-      <div class="text-center">
-        <%= link_to "探索更多路线 #{lucide_icon 'arrow-right', class: 'w-4 h-4 inline'}".html_safe, 
-                    routes_path, 
-                    class: "btn-outline inline-flex items-center gap-2" %>
-      </div>
-    </div>
-  </section>
-
-  <!-- How It Works -->
-  <section class="py-20">
-    <div class="container mx-auto px-4">
-      <div class="text-center mb-16">
-        <h2 class="font-serif text-4xl font-bold text-text mb-4">如何开始您的旅程</h2>
-        <p class="text-xl text-text-muted max-w-2xl mx-auto">
-          简单三步，开启您的香港法律文化探索之旅
-        </p>
-      </div>
-
-      <div class="grid md:grid-cols-3 gap-8">
-        <div class="text-center">
-          <div class="w-16 h-16 bg-primary/10 text-primary flex items-center justify-center text-2xl font-bold mb-6 mx-auto">
-            1
-          </div>
-          <h3 class="font-serif text-xl font-semibold text-text mb-3">选择服务模式</h3>
-          <p class="text-text-muted">
-            根据您的需求选择导览订阅、标准路线或定制服务
-          </p>
-        </div>
-        <div class="text-center">
-          <div class="w-16 h-16 bg-secondary/10 text-secondary flex items-center justify-center text-2xl font-bold mb-6 mx-auto">
-            2
-          </div>
-          <h3 class="font-serif text-xl font-semibold text-text mb-3">规划行程</h3>
-          <p class="text-text-muted">
-            浏览打卡地和路线，制定您的专属香港法律文化之旅
-          </p>
-        </div>
-        <div class="text-center">
-          <div class="w-16 h-16 bg-accent/10 text-accent flex items-center justify-center text-2xl font-bold mb-6 mx-auto">
-            3
-          </div>
-          <h3 class="font-serif text-xl font-semibold text-text mb-3">开始探索</h3>
-          <p class="text-text-muted">
-            跟随专业导览，深度体验香港独特的法律文化魅力
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA Section -->
-  <section class="py-20 bg-gradient-to-br from-primary to-primary-dark text-white">
-    <div class="container mx-auto px-4 text-center">
-      <h2 class="font-serif text-4xl lg:text-5xl font-bold mb-6">
-        准备好探索香港法律文化了吗？
-      </h2>
-      <p class="text-xl mb-8 text-primary-light max-w-2xl mx-auto">
-        立即订阅导览服务或联系我们定制专属行程
-      </p>
-      <div class="flex flex-wrap justify-center gap-4">
-        <%= link_to "开始探索", check_in_spots_path, class: "btn-secondary inline-flex items-center gap-2" %>
-        <%= link_to "联系我们", contacts_path, class: "btn-outline border-white text-white hover:bg-white hover:text-primary inline-flex items-center gap-2" %>
-      </div>
-    </div>
-  </section>
+  </footer>
 </div>
