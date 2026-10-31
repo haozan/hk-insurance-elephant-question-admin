@@ -63,8 +63,14 @@ jobs:
         run: |
           if [ -n "$DOKPLOY_DEPLOY_URL" ]; then
             echo "🚀 Triggering dokploy redeploy..."
-            curl -X GET "$DOKPLOY_DEPLOY_URL"
+            deploy_response=$(curl --fail-with-body --silent --show-error -X GET "$DOKPLOY_DEPLOY_URL")
+            echo "$deploy_response"
+            if echo "$deploy_response" | grep -qi "Application Not Found"; then
+              echo "❌ Dokploy application webhook is no longer valid."
+              exit 1
+            fi
           else
-            echo "⏭️  Skipping dokploy redeploy (DOKPLOY_DEPLOY_URL not set)"
+            echo "❌ DOKPLOY_DEPLOY_URL is not set."
+            exit 1
           fi
       
