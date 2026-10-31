@@ -11,9 +11,15 @@ require 'uri'
 RSpec.describe "Home", type: :request do
   describe "GET /" do
     it "returns http success and validates page quality" do
+      allow(ContentSnapshot).to receive(:question_bank_stats).and_return([
+        { paper_name: ContentSnapshot::PAPER_NAME, question_count: 2_100 },
+        { paper_name: ContentSnapshot::PAPER_TWO_NAME, question_count: 450 }
+      ])
+
       get root_path
       expect(response).to be_success_with_view_check('index')
-      expect(response.body).to include("把 3,802 道題")
+      expect(response.body).to include("把 2,550 道題")
+      expect(response.body).to include("2 卷港險題庫")
       expect(response.body).to include("每卷前 50 題")
       expect(response.body).to include("港險小象")
       expect(response.body).not_to include("管理員登入")

@@ -233,6 +233,18 @@ class ContentSnapshot < ApplicationRecord
   PAPER_FIVE_NAME = '投資相連長期保險'.freeze
   PAPER_NAMES = [PAPER_NAME, PAPER_TWO_NAME, PAPER_THREE_NAME, PAPER_FOUR_NAME, PAPER_FIVE_NAME].freeze
 
+  def self.question_bank_stats
+    counts = where(paper_name: PAPER_NAMES)
+             .pluck(:paper_name, Arel.sql("COALESCE(jsonb_array_length(data->'questions'), 0)"))
+             .to_h
+
+    PAPER_NAMES.filter_map do |paper_name|
+      next unless counts.key?(paper_name)
+
+      { paper_name: paper_name, question_count: counts.fetch(paper_name).to_i }
+    end
+  end
+
   def self.traditionalize_data(value)
     case value
     when String
